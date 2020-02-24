@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@ryanmorr/ready@1.4.0",
+      "destination": "wwwroot/Lib/ready",
+      "files": [
+        "dist/ready.umd.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "bulma@0.8.0",
+      "destination": "wwwroot/Lib/bulma"
+    }
+  ]
+}
