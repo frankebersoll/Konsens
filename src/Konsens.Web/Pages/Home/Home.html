@@ -1,0 +1,42 @@
+﻿<div ws-template="Home" ws-attr="Attr" class="columns is-centered">
+    <div class="home-page__layout column is-narrow">
+        <div class="home-page__content">
+            <div class="home-page__button">
+                <a class="button is-medium is-fullwidth is-primary is-inverted is-outlined" href="${NeuLink}">
+                    <span class="icon">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    <span>Neue Abstimmung</span>
+                </a>
+            </div>
+            <div ws-attr="CodeContainerAttr" class="home-page__button code-container">
+                <button ws-onmousedown="CodeButtonOnClick"
+                        class="code-container__button button is-medium is-fullwidth is-primary is-inverted is-outlined">
+                    <span class="icon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <span>Code eingeben</span>
+                </button>
+                <div ws-attr="CodeCtrlAttr" class="code-container__input control has-icons-left has-icons-right">
+                    <input ws-var="Code" ws-attr="CodeAttr" class="input is-medium" type="email" placeholder="Code">
+                    <span class="icon is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="home-title">
+            <figure class="home-title__logo image is-128x128">
+                <img src="/Images/logo.svg" alt="Runterwähl">
+            </figure>
+            <div>
+                <h1 class="title">
+                    Konsens
+                </h1>
+                <h2 class="subtitle">
+                    Eine Runterwähl-Anwendung.
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>

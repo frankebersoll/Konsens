@@ -1,0 +1,43 @@
+@require 'Styles-Base'
+
+.neu-page
+  page-slide()
+
+.items-panel
+  $border-color = #ddd
+  $separator-color = #ededed
+  $draggable-background = #eee
+  $drag-handle-color = #ccc
+  $margin = 1.5rem
+
+  margin-top: $margin
+  margin-bottom: $margin
+  border: $border-color solid 1px
+
+  &__heading
+    padding: .5em 1em
+    font-size: 1em
+
+  &__item
+    border-bottom: 1px solid $separator-color
+
+    &:last-child
+      border-bottom-right-radius: 0
+      border-bottom-left-radius: 0
+
+    &.draggable-mirror
+      position: absolute
+      z-index: 9999
+      border: 1px solid $border-color
+      border-radius: 0
+      background-color: $draggable-background
+
+  &__item-content, &__new-item, &__new-item-input
+    flex-grow: 1
+
+  &__drag-handle
+    margin: 0 .5em 0 0
+    color: $drag-handle-color
+
+.draggable-source--is-dragging
+  opacity: .2

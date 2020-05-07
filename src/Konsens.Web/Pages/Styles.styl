@@ -1,0 +1,33 @@
+#ws-templates
+  display: none
+
+.ws-page-container
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+// Flackern bei Tap auf iOS verhindern
+a, button, input
+  -webkit-tap-highlight-color: transparent
+
+// Vertikale Scrollbar nicht grundsätzlich anzeigen
+html
+  overflow-y: auto
+
+form
+  max-width: 700px
+
+.page-header
+  &__icon
+    position: relative
+    top: .25em
+  .title
+    margin-bottom: 0
+    + .subtitle
+      margin-top: 0.5rem
+
+@require 'Home/Home'
+@require 'Neu/Neu'
+@require 'Abstimmung/Abstimmung'

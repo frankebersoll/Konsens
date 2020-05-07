@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@ryanmorr/ready@1.4.0",
+      "destination": "wwwroot/Lib/ready",
+      "files": [
+        "dist/ready.umd.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "bulma@0.8.0",
+      "destination": "wwwroot/Lib/bulma"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "nprogress@0.2.0",
+      "destination": "wwwroot/Lib/nprogress/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "draggable@1.0.0-beta.9",
+      "destination": "wwwroot/Lib/draggable/",
+      "files": [
+        "sortable.js",
+        "sortable.min.js",
+        "sortable.min.js.map"
+      ]
+    },
+    {
+      "library": "@microsoft/signalr@3.1.2",
+      "destination": "wwwroot/Lib/signalr/",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.min.js"
+      ]
+    }
+  ]
+}

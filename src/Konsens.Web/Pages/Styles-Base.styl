@@ -1,0 +1,43 @@
+$fade-time = .3s
+
+page-fade()
+  transition: opacity $fade-time
+
+  &[aria-hidden=true]
+    left: 0
+    opacity: .5
+
+page-slide()
+  z-index: 1
+  background: white
+  transition: left $fade-time
+
+  &[aria-hidden=true]
+    left: 100%
+
+fade(isFadeOut, modifier)
+  tVis(isStart)
+    $timing = isStart ? step-start : step-end
+    $visibility = visibility $fade-time $timing
+    $opacity = unquote(', opacity ' + $fade-time)
+
+    if (isFadeOut)
+      return $visibility
+    else
+      return $visibility $opacity
+
+  if (isFadeOut)
+    transition: tVis(true)
+
+    ^[0]--{modifier} &
+      visibility: hidden
+      transition: tVis(false)
+  else
+    visibility: hidden
+    opacity: 0
+    transition: tVis(false)
+
+    ^[0]--{modifier} &
+      visibility: visible
+      opacity: 1
+      transition: tVis(true)

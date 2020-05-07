@@ -1,0 +1,41 @@
+@require 'Styles-Base'
+
+.home-page
+  page-fade()
+
+  overflow: hidden
+
+  &__layout
+    position: relative
+
+  &__content
+    position: absolute
+    padding: 0 3em
+    width: 100%
+    height: 100%
+    opacity: 0
+
+  &__button
+    margin-bottom: 1em
+
+.home-title
+  display: flex
+  align-items: center
+
+  &__logo
+    margin-right: 1rem
+
+.code-container
+  position: relative
+
+  &__button, &__input
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+
+  &__button
+    fade(true, entry)
+
+  &__input
+    fade(false, entry)

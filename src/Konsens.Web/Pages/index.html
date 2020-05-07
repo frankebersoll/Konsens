@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="de-de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Konsens</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <link rel="stylesheet" href="/Lib/bulma/css/bulma.css">
+    <link rel="stylesheet" href="/Lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="/Content/Konsens.Web.css">
+    <link rel="stylesheet" href="/Styles.css">
+
+    <script src="/Content/Konsens.Web.head.js"></script>
+    <script src="/Lib/nprogress/nprogress.js"></script>
+
+    <script defer src="/Lib/ready/dist/ready.umd.js"></script>
+    <script defer src="/Lib/draggable/sortable.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-observe-mutations></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script defer src="/Lib/signalr/dist/browser/signalr.min.js"></script>
+
+    <script defer src="/Animations.js"></script>
+    <script defer src="/Content/Konsens.Web.js"></script>
+</head>
+
+<body>
+    <script>
+        NProgress.start();
+    </script>
+
+    <div id="main"></div>
+
+    <div id="ws-templates">
+        <div ws-template="Error">
+            <article class="message is-danger">
+                <div class="message-header">
+                    <p>Fehler</p>
+                </div>
+                <div class="message-body">
+                    <p>Es ist ein Fehler aufgetreten:</p>
+                    <p>${Message}</p>
+                </div>
+            </article>
+        </div>
+
+        <div ws-template="LayoutContainer">
+            <div ws-replace="Content"></div>
+            <div class="modal" ws-attr="ModalAttr">
+                <div class="modal-background"></div>
+                <div class="modal-content" ws-hole="ModalContent"></div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </div>
+
+        <div ws-children-template="DefaultLayout">
+            <section class="page-header hero is-dark">
+                <div class="hero-body">
+                    <div class="columns is-mobile is-vcentered">
+                        <div class="column is-narrow">
+                            <span class="page-header__icon" ws-hole="Icon"></span>
+                        </div>
+                        <div class="column">
+                            <h1 class="title">${Title}</h1>
+                            <h2 class="subtitle" ws-attr="SubtitleAttr">${Subtitle}</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <div ws-replace="Content"></div>
+                </div>
+            </section>
+        </div>
+
+        <div ws-children-template="FullscreenLayout">
+            <section class="hero is-success is-bold is-fullheight">
+                <div class="hero-body">
+                    <div class="container">
+                        <div ws-replace="Content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <page-templates src="Home/Home.html" />
+        <page-templates src="Neu/Neu.html" />
+        <page-templates src="Abstimmung/Abstimmung.html" />
+
+    </div>
+
+</body>
+
+</html>

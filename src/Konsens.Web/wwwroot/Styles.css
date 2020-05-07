@@ -1,0 +1,129 @@
+#ws-templates {
+  display: none;
+}
+.ws-page-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  overflow-y: auto;
+}
+form {
+  max-width: 700px;
+}
+.page-header__icon {
+  position: relative;
+  top: 0.25em;
+}
+.page-header .title {
+  margin-bottom: 0;
+}
+.page-header .title + .subtitle {
+  margin-top: 0.5rem;
+}
+.home-page {
+  transition: opacity 0.3s;
+  overflow: hidden;
+}
+.home-page[aria-hidden=true] {
+  left: 0;
+  opacity: 0.5;
+}
+.home-page__layout {
+  position: relative;
+}
+.home-page__content {
+  position: absolute;
+  padding: 0 3em;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.home-page__button {
+  margin-bottom: 1em;
+}
+.home-title {
+  display: flex;
+  align-items: center;
+}
+.home-title__logo {
+  margin-right: 1rem;
+}
+.code-container {
+  position: relative;
+}
+.code-container__button,
+.code-container__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.code-container__button {
+  transition: visibility 0.3s step-start;
+}
+.code-container--entry .code-container__button {
+  visibility: hidden;
+  transition: visibility 0.3s step-end;
+}
+.code-container__input {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s step-end , opacity 0.3s;
+}
+.code-container--entry .code-container__input {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s step-start , opacity 0.3s;
+}
+.neu-page {
+  z-index: 1;
+  background: #fff;
+  transition: left 0.3s;
+}
+.neu-page[aria-hidden=true] {
+  left: 100%;
+}
+.items-panel {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: #ddd solid 1px;
+}
+.items-panel__heading {
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+.items-panel__item {
+  border-bottom: 1px solid #ededed;
+}
+.items-panel__item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.items-panel__item.draggable-mirror {
+  position: absolute;
+  z-index: 9999;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  background-color: #eee;
+}
+.items-panel__item-content,
+.items-panel__new-item,
+.items-panel__new-item-input {
+  flex-grow: 1;
+}
+.items-panel__drag-handle {
+  margin: 0 0.5em 0 0;
+  color: #ccc;
+}
+.draggable-source--is-dragging {
+  opacity: 0.2;
+}

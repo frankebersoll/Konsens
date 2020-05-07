@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <WebSharperProject>Library</WebSharperProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="LiveReload.fs" />
+    <Compile Include="Logging.fs" />
+    <Compile Include="Mvu.fs" />
+    <Compile Include="Pages.fs" />
+    <Compile Include="Remoting.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="WebSharper" Version="4.6.1.381" />    
+    <PackageReference Include="WebSharper.FSharp" Version="4.6.1.381" />
+    <PackageReference Include="WebSharper.Mvu" Version="4.6.0.72" />
+    <PackageReference Include="WebSharper.UI" Version="4.6.0.190" />
+  </ItemGroup>
+
+</Project>

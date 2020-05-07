@@ -32,7 +32,7 @@ module Events =
 
     open Model
 
-    type AngelegtEvent = { Titel: string; Vorschläge: string list }
+    type AngelegtEvent = { Titel: string; Vorschläge: string list; Code: string }
     type AbgestimmtEvent = { Index: Index; Benutzer: BenutzerId; Bewertung: Bewertung }
 
     [<Aggregate "Abstimmung">]
@@ -81,7 +81,7 @@ module Commands =
 
     open Model
 
-    type AnlegenCommand = { Titel: string; Benutzername: string; Vorschläge: string list }
+    type AnlegenCommand = { Titel: string; Benutzername: string; Vorschläge: string list; Code: string }
 
     type CommandType =
         | Anlegen of AnlegenCommand
@@ -89,13 +89,17 @@ module Commands =
         | Entfernen
         | Abstimmen of Index * BenutzerId * Bewertung
 
-    type Command = { Id: AbstimmungId; Type: CommandType }
+    type Command = { Id: AbstimmungId; Content: CommandType }
+
+    let cmd id content = { Id = id; Content = content }
+
+    type ExecutionResult = { Version: int; Events: Events.Event list }
 
     let private handleAnlegen cmd agg = 
         match agg with
         | { Status = Neu } -> 
             [ 
-                Events.Angelegt { Titel = cmd.Titel; Vorschläge = cmd.Vorschläge }
+                Events.Angelegt { Titel = cmd.Titel; Vorschläge = cmd.Vorschläge; Code = cmd.Code }
                 Events.Beigetreten { Id = BenutzerId.Neu(); Name = cmd.Benutzername }
             ]
         | _ -> failwith "Existiert bereits"
@@ -128,12 +132,9 @@ module Commands =
         | Entfernen -> handleEntfernen agg
         | Abstimmen (index, benutzerId, bewertung) -> handleAbstimmen index benutzerId bewertung agg
 
-    let execute load save dispatch command =
-        let id = command.Id
-        let events = load id
+    let execute events (command: Command) =
         let version = events |> List.length
         let agg = events |> List.fold Events.apply Abstimmung.Neu
-        let result = agg |> handle command.Type
+        let result = agg |> handle command.Content
         result |> List.fold Events.apply agg |> ignore
-        save id version result
-        dispatch id result
+        { ExecutionResult.Version = version; Events = result }

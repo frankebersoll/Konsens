@@ -1,0 +1,49 @@
+﻿<div ws-template="NeueAbstimmung" ws-attr="Attr">
+
+    <span ws-template="NeuIcon" class="icon is-large">
+        <i class="far fa-3x fa-plus-square"></i>
+    </span>
+
+    <form ws-onsubmit="FormOnSubmit" autocomplete="off">
+
+        <div class="field">
+            <label class="label">Titel</label>
+            <div class="control">
+                <input ws-var="Titel" ws-attr="TitelAttr" class="input" type="text">
+            </div>
+        </div>
+
+        <section class="items-panel panel is-shadowless">
+            <p class="items-panel__heading panel-heading">Vorschläge</p>
+            <div ws-template="Vorschlag" class="items-panel__item panel-block">
+                <div class="items-panel__item-content">${Titel}</div>
+                <span class="icon items-panel__drag-handle">
+                    <i class="fas fa-grip-lines"></i>
+                </span>
+                <button ws-onclick="DeleteOnClick" class="delete" type="button"></button>
+            </div>
+            <div ws-hole="Vorschlaege" ws-attr="VorschlaegeAttr"></div>
+            <div class="panel-block">
+                <div class="items-panel__new-item field has-addons">
+                    <div class="items-panel__new-item-input control">
+                        <input class="input" ws-var="Vorschlag" ws-attr="VorschlagAttr">
+                    </div>
+                    <div class="control">
+                        <a class="button" ws-attr="AddAttr">
+                            Hinzufügen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" type="submit" ws-attr="AnlegenAttr">Anlegen</button>
+            </div>
+            <div class="control">
+                <a class="button is-link is-light" href="${AbbrechenLink}">Abbrechen</a>
+            </div>
+        </div>
+    </form>
+</div>
