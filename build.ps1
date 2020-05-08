@@ -1,13 +1,22 @@
+[CmdLetBinding (DefaultParameterSetName="Default")]
 param(
+    [Parameter(ParameterSetName="Watch")]
+    [switch] $Watch,
+
+    [Parameter(ParameterSetName="Default")]
     [switch] $Release
 )
 
-if (-not (dotnet tool list | Select-String "^fake-cli")) 
-{
-    dotnet tool restore
+dotnet tool restore | Out-Null
+
+$target = $PSCmdlet.ParameterSetName
+$args = @()
+
+if ($target -ne "Default") {
+    $args += "-t"
+    $args += $target
 }
 
-$args = @()
 if ($Release.IsPresent) {
     $args += "-r"
 }
