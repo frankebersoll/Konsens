@@ -9,6 +9,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "WebSharper.Techno", "src\We
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Konsens.Library", "src\Konsens.Library\Konsens.Library.fsproj", "{EB4DF873-F844-427F-BDAE-DF6B1C9CE9B9}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Konsens.Tests", "src\Konsens.Tests\Konsens.Tests.fsproj", "{CD906D85-E873-4C2E-B99A-3A6792CA3BED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EB4DF873-F844-427F-BDAE-DF6B1C9CE9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB4DF873-F844-427F-BDAE-DF6B1C9CE9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB4DF873-F844-427F-BDAE-DF6B1C9CE9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD906D85-E873-4C2E-B99A-3A6792CA3BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD906D85-E873-4C2E-B99A-3A6792CA3BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD906D85-E873-4C2E-B99A-3A6792CA3BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD906D85-E873-4C2E-B99A-3A6792CA3BED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
