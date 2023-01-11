@@ -5,7 +5,7 @@
   "author": "Ebersoll, Frank <frank.ebersoll@hauertmann.net>",
   "license": "MIT",
   "dependencies": {
-    "knex": "0.19.5",
+    "knex": "2.4.0",
     "remotedev-server": "^0.3.1",
     "stylint": "^2.0.0",
     "stylus": "^0.54.7"
